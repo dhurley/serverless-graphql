@@ -1,0 +1,17 @@
+service: serverless-graphql
+provider:
+  name: aws
+  runtime: nodejs8.10
+functions:
+  graphql:
+    handler: handler.graphqlHandler
+    events:
+    - http:
+        path: graphql
+        method: any
+        cors: true
+plugins:
+  - serverless-offline
+custom:
+  serverless-offline:
+    port: 4000
